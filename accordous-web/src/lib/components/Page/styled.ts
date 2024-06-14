@@ -18,6 +18,6 @@ export const PageContent = styled.div(
     height: 100%;
     margin: auto;
     margin-bottom: ${cssSize(10)};
-    max-width: ${screenSize.laptopL}px;
+    max-width: ${screenSize.desktopS}px;
   `,
 );

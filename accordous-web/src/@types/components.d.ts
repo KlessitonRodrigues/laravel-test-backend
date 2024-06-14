@@ -27,6 +27,7 @@ declare namespace Props {
 
   type Page = {
     fullScreen?: boolean;
+    loading?: boolean;
     children?: React.ReactNode;
   };
 
@@ -64,5 +65,12 @@ declare namespace Props {
 
   type Form<T> = {
     onSubmit?: (form: T) => void;
+  };
+
+  type HiddenInput = {
+    placeholder: string;
+    value: string;
+    required?: boolean;
+    onChange: (value: string) => void;
   };
 }

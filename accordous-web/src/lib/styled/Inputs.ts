@@ -16,7 +16,7 @@ export const InputBox = styled.label<Props.CssProps>(
     width: ${w ?? '100%'};
     display: flex;
     align-items: center;
-    gap: ${cssSize(4)};
+    gap: ${cssSize(2)};
     background-color: ${theme.colors.bg1};
     border-radius: ${theme.radius.medium};
     border: ${theme.border.small};

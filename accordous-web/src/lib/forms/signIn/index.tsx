@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { LuLock, LuMail } from 'react-icons/lu';
+import { LuMail } from 'react-icons/lu';
 
+import HiddenInput from 'src/lib/base/HiddenInput';
 import { MainButton } from 'src/lib/styled/Buttons';
 import { Column, Row } from 'src/lib/styled/Flex';
 import { Form } from 'src/lib/styled/Forms';
@@ -33,19 +34,15 @@ export const SignInForm = (props: Props.Form<Forms.SignIn>) => {
           <h6>Email</h6>
           <InputBox>
             <LuMail size={18} />
-            <Input placeholder="Enter your email" />
+            <Input placeholder="Enter your email" required />
           </InputBox>
         </Label>
 
         <Column right>
           <Label>
             <h6>Password</h6>
-            <InputBox>
-              <LuLock size={18} />
-              <Input placeholder="Enter your password" />
-            </InputBox>
+            <HiddenInput value="" onChange={() => {}} placeholder="Enter your password" required />
           </Label>
-
           <Row right>
             <small>Forgot password?</small>
           </Row>

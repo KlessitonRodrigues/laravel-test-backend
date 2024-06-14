@@ -25,6 +25,7 @@ export const BgImage = styled.div<Props.CssProps>(
     background-repeat: no-repeat;
     padding: ${p};
     color: ${theme.colors.white};
+    transition: background-image 1s;
     z-index: 0;
 
     @media (max-width: ${screenSize.laptopS}px) {
@@ -41,6 +42,6 @@ export const BgImageFixed = styled(BgImage)(
     width: 100vw;
     height: 100vh;
     z-index: -2;
-    filter: brightness(0.4);
+    filter: brightness(0.5);
   `,
 );

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import If from 'src/lib/base/If';
 import Page from 'src/lib/components/Page';
@@ -10,9 +10,13 @@ import { Card, Section } from 'src/lib/styled/Containers';
 import { Column, Row } from 'src/lib/styled/Flex';
 import { BgImageFixed, Image } from 'src/lib/styled/Images';
 import { WhiteText, WhiteTitle } from 'src/lib/styled/typography';
-import house1 from 'src/public/images/house2.jpg';
+import house1 from 'src/public/images/house1.png';
+import house2 from 'src/public/images/house2.jpg';
+import house3 from 'src/public/images/house3.jpg';
 import logoTitle from 'src/public/images/logoTitle.png';
 import { authDescriptions } from 'src/utils/constants/sections';
+
+const bgImages = [house1, house2, house3];
 
 const AuthPage = () => {
   const [authForm, setForm] = useState(0);
@@ -20,28 +24,22 @@ const AuthPage = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      section < authDescriptions.length - 1 ? setSection(section + 1) : setSection(0);
+      if (section < authDescriptions.length - 1) setSection(section + 1);
+      else setSection(0);
     }, 3000);
     return () => clearTimeout(timer);
   }, [section]);
-
-  const Description = useMemo(
-    () => (
-      <Column key={section} className="delay-items" top left gap={10}>
-        <WhiteTitle size={12}>{authDescriptions[section].title}</WhiteTitle>
-        <WhiteText size={6}>{authDescriptions[section].description}</WhiteText>
-        <WhiteText size={6}>{authDescriptions[section].description2}</WhiteText>
-      </Column>
-    ),
-    [section],
-  );
 
   return (
     <Page>
       <Section>
         <Image w="14rem" m="0" src={logoTitle} />
-        <Row responsive m="4rem 0" gap={12}>
-          <Column>{Description}</Column>
+        <Row responsive m="8rem 0" gap={12}>
+          <Column key={section} className="delay-items" top left gap={10} h="20rem">
+            <WhiteTitle size={12}>{authDescriptions[section].title}</WhiteTitle>
+            <WhiteText size={6}>{authDescriptions[section].description}</WhiteText>
+            <WhiteText size={6}>{authDescriptions[section].description2}</WhiteText>
+          </Column>
           <Column gap={10}>
             <Card w="fit-content">
               <If check={authForm == 0} true={<SignInForm />} />
@@ -59,7 +57,7 @@ const AuthPage = () => {
           </Column>
         </Row>
       </Section>
-      <BgImageFixed src={house1} />
+      <BgImageFixed src={bgImages[section]} />
     </Page>
   );
 };
