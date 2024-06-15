@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { LuMail } from 'react-icons/lu';
 
 import HiddenInput from 'src/lib/base/HiddenInput';
-import { MainButton } from 'src/lib/styled/Buttons';
-import { Column, Row } from 'src/lib/styled/Flex';
-import { Form } from 'src/lib/styled/Forms';
-import { Input, InputBox, Label } from 'src/lib/styled/Inputs';
-import { DefaultTitle } from 'src/lib/styled/typography';
+import { MainButton } from 'src/lib/base/StyledComponents/Buttons';
+import { Column, Row } from 'src/lib/base/StyledComponents/Flex';
+import { Form } from 'src/lib/base/StyledComponents/Forms';
+import { Input, InputBox, Label } from 'src/lib/base/StyledComponents/Inputs';
+import { DefaultTitle } from 'src/lib/base/StyledComponents/typography';
 import { isValidPassword } from 'src/utils/forms';
 
 const initialState: Forms.SignIn = {

@@ -1,7 +1,6 @@
-import { Column } from 'src/lib/styled/Flex';
+import { Column } from 'src/lib/base/StyledComponents/Flex';
 import { getText } from 'src/utils/i18n';
 
-import Icons from '../Icons';
 import If from '../If';
 import { Container, Description, FullScreen, Spinner, Title } from './styled';
 
@@ -10,16 +9,12 @@ const Loading = (props: Props.Loading) => {
   return (
     <Container>
       <If check={show && type === 'icon'}>
-        <Spinner>
-          <Icons type="spinner" size={8} />
-        </Spinner>
+        <Spinner></Spinner>
       </If>
 
       <If check={show && type === 'fullScreen'}>
         <FullScreen>
-          <Spinner>
-            <Icons type="spinner" size={12} />
-          </Spinner>
+          <Spinner></Spinner>
           <Column gap={4}>
             <Title>{title || getText('loding_title')}</Title>
             <Description>{description}</Description>

@@ -7,7 +7,7 @@ export const Image = styled.img<Props.CssProps>(
     display: block;
     width: 100%;
     padding: ${cssSize(1)};
-    margin: ${m ?? 'auto'};
+    margin: ${m ?? '0'};
     max-height: ${h ?? '100%'};
     max-width: ${w ?? 'auto'};
     border-radius: ${theme.border.medium};

@@ -6,9 +6,9 @@ export const PageContainer = styled.div<{ fullscreen: boolean }>(
   ({ fullscreen }) => css`
     width: 100%;
     height: 100%;
+    z-index: 1;
     ${fullscreen && 'width: 100vw;'}
     ${fullscreen && 'height: 100vh;'}
-      z-index: 1;
   `,
 );
 

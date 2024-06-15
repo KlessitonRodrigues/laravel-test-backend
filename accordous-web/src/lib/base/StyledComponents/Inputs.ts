@@ -34,6 +34,12 @@ export const InputBox = styled.label<Props.CssProps>(
   `,
 );
 
+export const InputBoxSmall = styled(InputBox)(
+  () => css`
+    padding: ${cssSize(3)} ${cssSize(5)};
+  `,
+);
+
 export const Input = styled.input<Props.CssProps>(
   ({ theme }) => css`
     width: 100%;

@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { animations, cssSize, gradients } from 'src/styles/utils';
+import { animations, cssSize } from 'src/styles/utils';
 
-export const Modal = styled.div<{ show: boolean }>(
+export const ModalContainer = styled.div<{ show: boolean }>(
   ({ show }) => css`
     display: ${show ? 'flex' : 'none'};
     position: fixed;
@@ -14,31 +14,28 @@ export const Modal = styled.div<{ show: boolean }>(
     width: 100vw;
     height: 100vh;
     animation: 0.5s ${animations.fadeIn} ease-out;
-    background-color: #5555;
-    backdrop-filter: blur(12px);
+    background-color: #000b;
+    backdrop-filter: blur(4px);
     z-index: 2;
   `,
 );
 
 export const ModalHeader = styled.div(
   () => css`
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: ${cssSize(350)};
-    padding: ${cssSize(4)};
-    background-image: ${gradients.purple};
-    color: #fff;
   `,
 );
 
 export const ModalContent = styled.div(
-  () => css`
+  ({ theme }) => css`
     width: 100%;
-    height: 100%;
-    max-width: ${cssSize(350)};
-    padding: ${cssSize(6)} 0 ${cssSize(10)};
+    max-width: ${cssSize(250)};
+    padding: ${cssSize(8)};
+    background-color: #fff;
+    border-radius: ${theme.radius.small};
     overflow: auto;
     animation: 0.5s ${animations.slideUp} ease-out;
   `,

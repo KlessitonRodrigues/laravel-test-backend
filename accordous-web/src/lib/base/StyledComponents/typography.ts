@@ -3,8 +3,9 @@ import styled, { css } from 'styled-components';
 import { cssSize } from 'src/styles/utils';
 
 export const DefaultTitle = styled.h1<Props.CssProps>(
-  ({ size }) => css`
+  ({ size, center }) => css`
     ${size && `font-size: ${cssSize(size)};`}
+    ${center && 'text-align: center;'}
   `,
 );
 
@@ -21,8 +22,9 @@ export const MainTitle = styled(DefaultTitle)(
 );
 
 export const DefaultText = styled.p<Props.CssProps>(
-  ({ size }) => css`
+  ({ size, center }) => css`
     ${size && `font-size: ${cssSize(size)};`}
+    ${center && 'text-align: center;'}
   `,
 );
 

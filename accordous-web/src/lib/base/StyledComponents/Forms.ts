@@ -8,9 +8,10 @@ export const Form = styled.form<Props.CssProps>(
     flex-direction: column;
     align-items: center;
     margin: auto;
-    gap: ${cssSize(10)};
+    width: 100%;
+    max-width: ${cssSize(110)};
     padding: ${cssSize(6)} ${cssSize(2)};
-    width: ${cssSize(110)};
+    gap: ${cssSize(8)};
     animation: ${animations.fadeIn} 1s;
 
     @media (max-width: ${screenSize.tablet}px) {
@@ -21,6 +22,6 @@ export const Form = styled.form<Props.CssProps>(
 
 export const FormLarge = styled(Form)(
   () => css`
-    width: ${cssSize(300)};
+    max-width: ${cssSize(300)};
   `,
 );

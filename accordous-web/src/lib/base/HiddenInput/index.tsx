@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { LuLock } from 'react-icons/lu';
 import { PiEye, PiEyeSlash } from 'react-icons/pi';
 
-import { Input, InputBox } from 'src/lib/styled/Inputs';
-
 import If from '../If';
+import { Input, InputBox } from '../StyledComponents/Inputs';
 
 const HiddenInput = (props: Props.HiddenInput) => {
   const { placeholder, value, required, onChange } = props;

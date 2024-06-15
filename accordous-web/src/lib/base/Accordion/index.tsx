@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import { LuChevronLeft } from 'react-icons/lu';
 
-import { AccordionContainer, AccordionContent, AccordionHeader } from 'src/lib/styled/Accordion';
-import { Hr } from 'src/lib/styled/Divisors';
+import { Hr } from 'src/lib/base/StyledComponents/Divisors';
 
-import Icons from '../Icons';
 import If from '../If';
+import { AccordionContainer, AccordionContent, AccordionHeader } from './styled';
 
 const Accordion = (props: Props.Accordion) => {
   const { title, content, delayLoad } = props;
@@ -19,7 +19,7 @@ const Accordion = (props: Props.Accordion) => {
     >
       <AccordionHeader>
         {title}
-        <Icons type="caretLeft" size={8} />
+        <LuChevronLeft className="icon" size={8} />
       </AccordionHeader>
       <AccordionContent>
         <Hr />

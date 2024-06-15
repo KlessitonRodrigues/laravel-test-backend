@@ -12,12 +12,12 @@ export const Button = styled.button<Props.CssProps>(
     background-color: ${theme.colors.bg1};
     color: ${theme.colors.text1};
     border: ${theme.border.small};
-    border-radius: ${theme.radius.medium};
-    font-size: ${theme.fontSize.body};
+    border-radius: ${theme.radius.small};
+    font-size: ${theme.fontSize.label};
     font-weight: bold;
     transition: 0.2s;
     min-width: ${w ?? cssSize(50)};
-    min-height: ${h ?? cssSize(13)};
+    min-height: ${h ?? cssSize(12)};
 
     &:hover {
       opacity: 0.8;

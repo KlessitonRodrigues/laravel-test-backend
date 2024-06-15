@@ -33,7 +33,7 @@ export const defaultTheme: Styles.Theme = {
     body: '1rem',
     small: '0.95rem',
     verySmall: '0.9rem',
-    label: '0.8rem',
+    label: '0.9rem',
   },
   shadow: {
     large: '0 1px 7px 0 #0007',

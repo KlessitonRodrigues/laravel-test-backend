@@ -14,6 +14,7 @@ declare namespace Props {
     right?: boolean;
     top?: boolean;
     bottom?: boolean;
+    center?: boolean;
     wrap?: boolean;
     rows?: number;
     cols?: number;
@@ -48,6 +49,12 @@ declare namespace Props {
     type: 'fullScreen' | 'icon';
     title?: string;
     description?: string;
+  };
+
+  type Modal = {
+    show: boolean;
+    title?: string;
+    children?: React.ReactNode;
   };
 
   type If = {
