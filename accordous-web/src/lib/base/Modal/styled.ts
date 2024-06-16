@@ -26,6 +26,10 @@ export const ModalHeader = styled.div(
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    & .icon-close {
+      cursor: pointer;
+    }
   `,
 );
 
@@ -33,9 +37,10 @@ export const ModalContent = styled.div(
   ({ theme }) => css`
     width: 100%;
     max-width: ${cssSize(250)};
+    max-height: ${cssSize(250)};
     padding: ${cssSize(8)};
     background-color: #fff;
-    border-radius: ${theme.radius.small};
+    border-radius: ${theme.radius.large};
     overflow: auto;
     animation: 0.5s ${animations.slideUp} ease-out;
   `,

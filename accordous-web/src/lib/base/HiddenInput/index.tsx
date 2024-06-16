@@ -5,7 +5,7 @@ import { PiEye, PiEyeSlash } from 'react-icons/pi';
 import If from '../If';
 import { Input, InputBox } from '../StyledComponents/Inputs';
 
-const HiddenInput = (props: Props.HiddenInput) => {
+const HiddenInput = (props: Props.InputField) => {
   const { placeholder, value, required, onChange } = props;
   const [active, setActive] = useState(false);
 

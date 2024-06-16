@@ -1,73 +1,66 @@
 import { LuBanknote, LuRuler, LuSearch } from 'react-icons/lu';
 
+import InputField from 'src/lib/base/InputField';
 import { MainButton } from 'src/lib/base/StyledComponents/Buttons';
 import { Column } from 'src/lib/base/StyledComponents/Flex';
 import { Form } from 'src/lib/base/StyledComponents/Forms';
-import { Input, InputBoxSmall, Label } from 'src/lib/base/StyledComponents/Inputs';
 
 const AnnounceFiltersForm = () => {
   return (
     <Form>
       <Column>
-        <Label>
-          <b>Country</b>
-          <InputBoxSmall>
-            <LuSearch size={14} />
-            <Input placeholder="Brasil" />
-          </InputBoxSmall>
-        </Label>
-        <Label>
-          <b>State</b>
-          <InputBoxSmall>
-            <LuSearch size={14} />
-            <Input placeholder="São Paulo" />
-          </InputBoxSmall>
-        </Label>
-        <Label>
-          <b>City</b>
-          <InputBoxSmall>
-            <LuSearch size={14} />
-            <Input placeholder="Ribeirão Preto" />
-          </InputBoxSmall>
-        </Label>
+        <InputField
+          label="Country"
+          iconLeft={<LuSearch size={14} />}
+          placeholder="Brasil"
+          required
+        />
+        <InputField
+          label="State"
+          iconLeft={<LuSearch size={14} />}
+          placeholder="São Paulo"
+          required
+        />
+        <InputField
+          label="City"
+          iconLeft={<LuSearch size={14} />}
+          placeholder="Ribeirão Preto"
+          required
+        />
       </Column>
 
       <Column>
-        <Label>
-          <b>Maximum size</b>
-          <InputBoxSmall>
-            <LuRuler size={16} />
-            <Input placeholder="0" />
-            <strong>m²</strong>
-          </InputBoxSmall>
-        </Label>
-        <Label>
-          <b>Minimum size</b>
-          <InputBoxSmall>
-            <LuRuler size={16} />
-            <Input placeholder="1000" />
-            <strong>m²</strong>
-          </InputBoxSmall>
-        </Label>
+        <InputField
+          required
+          label="Maximum size"
+          placeholder="Brasil"
+          iconLeft={<LuRuler size={16} />}
+          iconRight={<strong>m²</strong>}
+        />
+        <InputField
+          required
+          label="Minimum size"
+          placeholder="São Paulo"
+          iconLeft={<LuRuler size={16} />}
+          iconRight={<strong>m²</strong>}
+        />
       </Column>
 
       <Column>
-        <Label>
-          <b>Maximum value</b>
-          <InputBoxSmall>
-            <LuBanknote size={16} />
-            <Input placeholder="0" />
-            <strong>$</strong>
-          </InputBoxSmall>
-        </Label>
-        <Label>
-          <b>Minimum value</b>
-          <InputBoxSmall>
-            <LuBanknote size={16} />
-            <Input placeholder="100000" />
-            <strong>$</strong>
-          </InputBoxSmall>
-        </Label>
+        <InputField
+          required
+          label="Maximum value"
+          placeholder="0"
+          iconLeft={<LuBanknote size={16} />}
+          iconRight={<strong>$</strong>}
+        />
+        <InputField
+          required
+          label="Minimum value"
+          placeholder="100000"
+          iconLeft={<LuBanknote size={16} />}
+          iconRight={<strong>$</strong>}
+        />
       </Column>
       <MainButton>Search</MainButton>
     </Form>

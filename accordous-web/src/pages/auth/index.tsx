@@ -34,6 +34,7 @@ const AuthPage = () => {
     <Page>
       <Section>
         <Image w="14rem" m="0" src={logoTitle} />
+
         <Row responsive m="8rem 0" gap={12}>
           <Column w="50rem" h="20rem" key={section} className="delay-items" gap={10}>
             <WhiteTitle center size={12}>

@@ -15,9 +15,9 @@ export const FullScreen = styled.div(
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: ${theme.colors.black + '88'};
+    background-color: #000b;
     color: ${theme.colors.white};
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
     z-index: 2;
   `,
 );
@@ -29,13 +29,13 @@ export const Spinner = styled.div(
     align-items: center;
     justify-content: center;
     margin-bottom: ${cssSize(8)};
-    animation: ${animations.spinning} 0.5s infinite linear;
+    animation: ${animations.spinning} 0.75s infinite linear;
   `,
 );
 
 export const Title = styled.p(
   ({ theme }) => css`
-    font-size: ${theme.fontSize.h5};
+    font-size: ${theme.fontSize.label};
   `,
 );
 

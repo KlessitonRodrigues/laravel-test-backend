@@ -55,6 +55,7 @@ declare namespace Props {
     show: boolean;
     title?: string;
     children?: React.ReactNode;
+    onClose?: () => void;
   };
 
   type If = {
@@ -74,10 +75,17 @@ declare namespace Props {
     onSubmit?: (form: T) => void;
   };
 
-  type HiddenInput = {
-    placeholder: string;
-    value: string;
+  type InputField = {
+    label?: string;
+    value?: string;
     required?: boolean;
-    onChange: (value: string) => void;
+    placeholder?: string;
+    onChange?: (value: string) => void;
+    iconLeft?: React.ReactElement;
+    iconRight?: React.ReactElement;
+  };
+
+  type AppHeader = {
+    onCreateAnnounce?: () => void;
   };
 }

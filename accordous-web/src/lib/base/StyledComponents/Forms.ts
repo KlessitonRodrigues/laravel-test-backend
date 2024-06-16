@@ -10,7 +10,7 @@ export const Form = styled.form<Props.CssProps>(
     margin: auto;
     width: 100%;
     max-width: ${cssSize(110)};
-    padding: ${cssSize(6)} ${cssSize(2)};
+    padding: ${cssSize(6)} 0;
     gap: ${cssSize(8)};
     animation: ${animations.fadeIn} 1s;
 
