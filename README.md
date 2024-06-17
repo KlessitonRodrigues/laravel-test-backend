@@ -2,6 +2,11 @@
 
 #### Available on: https://d2br88sd9e2try.cloudfront.net
 
+#### 📌 Test Account
+
+- Email: test@testemail.com
+- Password: Test12345
+
 #### 🎨 Design Source
 
 - Figma: https://www.figma.com/design/v5GTsk0KYMrXsWE7iQvjpE/accordous-web
