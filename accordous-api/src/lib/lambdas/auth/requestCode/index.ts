@@ -16,7 +16,5 @@ export const handler: Lambdas.APIHandler = async event => {
     return createResponse(200, toJSObject(user));
   } catch (err: any) {
     return createResponse(500, err.message);
-  } finally {
-    await dbDisconnect();
   }
 };

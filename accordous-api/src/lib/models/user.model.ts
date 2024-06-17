@@ -3,10 +3,6 @@ import { Schema, model } from 'mongoose';
 import { Models } from '../../@types/models';
 
 export const userSchema = new Schema<Models.User>({
-  name: {
-    type: String,
-    required: true,
-  },
   email: {
     type: String,
     required: true,

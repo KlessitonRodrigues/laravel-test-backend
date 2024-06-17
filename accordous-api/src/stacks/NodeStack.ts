@@ -9,7 +9,6 @@ import { RequestCodeLambda } from '../lib/lambdas/auth/requestCode/lambda';
 import { SignInLambda } from '../lib/lambdas/auth/signIn/lambda';
 import { SignUpLambda } from '../lib/lambdas/auth/signUp/lambda';
 import { VerifyCodeLambda } from '../lib/lambdas/auth/verifyCode/lambda';
-import { SavePaymentLambda } from '../lib/lambdas/payment/savePayment/lambda';
 import { GetUserLambda } from '../lib/lambdas/user/getUser/lambda';
 import { addCorsPreflight } from '../utils/api/addCors';
 
@@ -30,7 +29,6 @@ export class NodeTemplateStack extends cdk.Stack {
     const requestCode = new RequestCodeLambda(this, lambdaProps);
     const verifyCode = new VerifyCodeLambda(this, lambdaProps);
     const getUser = new GetUserLambda(this, lambdaProps);
-    const savePayment = new SavePaymentLambda(this, lambdaProps);
 
     // API Gateway
     const testApi = new TestApiGateway(this);
@@ -63,10 +61,6 @@ export class NodeTemplateStack extends cdk.Stack {
     const userApi = testApi.root.addResource('user');
     userApi.addMethod('GET', new gateway.LambdaIntegration(getUser));
 
-    // ...payment/
-    const paymentApi = testApi.root.addResource('payment');
-    paymentApi.addMethod('POST', new gateway.LambdaIntegration(savePayment));
-
     // CORS Preflight
     addCorsPreflight(authSignInApi);
     addCorsPreflight(authSignUpApi);
@@ -74,6 +68,5 @@ export class NodeTemplateStack extends cdk.Stack {
     addCorsPreflight(authVerifyCodeApi);
     addCorsPreflight(authRefreshTokenApi);
     addCorsPreflight(userApi);
-    addCorsPreflight(paymentApi);
   }
 }

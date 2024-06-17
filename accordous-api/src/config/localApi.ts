@@ -8,9 +8,11 @@ import { handler as authRequestCode } from '../lib/lambdas/auth/requestCode';
 import { handler as authSignIn } from '../lib/lambdas/auth/signIn';
 import { handler as authSignUp } from '../lib/lambdas/auth/signUp';
 import { handler as authVerifyCode } from '../lib/lambdas/auth/verifyCode';
-import { handler as paymentSave } from '../lib/lambdas/payment/savePayment';
+import { handler as createProperty } from '../lib/lambdas/property/createProperty';
+import { handler as deleteProperty } from '../lib/lambdas/property/deleteProperty';
+import { handler as listProperties } from '../lib/lambdas/property/listProperties';
 import { handler as userGetUserData } from '../lib/lambdas/user/getUser';
-import { createLambdaEvent } from '../utils/api/localApi';
+import { createLambdaEvent, debugMiddleware } from '../utils/api/localApi';
 
 const localRoutes = () => {
   const router = express.Router();
@@ -25,8 +27,10 @@ const localRoutes = () => {
   // .../user
   router.get('/user/', createLambdaEvent(userGetUserData));
 
-  // .../payment
-  router.post('/payment/', createLambdaEvent(paymentSave));
+  // .../property
+  router.get('/property/list', createLambdaEvent(listProperties));
+  router.post('/property', createLambdaEvent(createProperty));
+  router.delete('/property/:id', createLambdaEvent(deleteProperty));
 
   return router;
 };
@@ -39,6 +43,7 @@ const localApi = async () => {
   app.use(bodyparser.urlencoded({ extended: false }));
   app.use(bodyparser.json());
   app.use(cors());
+  app.use(debugMiddleware);
   app.use(routes);
   app.listen(port, () => console.log('Running at: http://localhost:' + port));
 };

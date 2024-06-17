@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 import { Lambdas } from '../../@types/lambdas';
 
@@ -26,4 +26,9 @@ export const createLambdaEvent = (lambda: Lambdas.APIHandler) => (req: Request, 
     .catch(err => {
       res.status(500).json({ error: err.message });
     });
+};
+
+export const debugMiddleware = (req: Request, res: Response, next: NextFunction) => {
+  console.log(`${req.method}: ${req.url}`);
+  next();
 };

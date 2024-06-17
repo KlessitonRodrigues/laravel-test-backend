@@ -35,17 +35,16 @@ export const propertySchema = new Schema<Models.Property>({
     type: String,
     required: true,
   },
-  number: {
-    type: String,
-    required: true,
-  },
   complement: {
     type: String,
-    required: true,
   },
   phone: {
     type: String,
     required: true,
+  },
+  archived: {
+    type: Boolean,
+    default: false,
   },
   createdAt: {
     type: Date,
