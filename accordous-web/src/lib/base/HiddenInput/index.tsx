@@ -3,27 +3,27 @@ import { LuLock } from 'react-icons/lu';
 import { PiEye, PiEyeSlash } from 'react-icons/pi';
 
 import If from '../If';
-import { Input, InputBox } from '../StyledComponents/Inputs';
+import InputField from '../InputField';
 
 const HiddenInput = (props: Props.InputField) => {
-  const { placeholder, value, required, onChange } = props;
+  const { label, placeholder, value, required, onChange } = props;
   const [active, setActive] = useState(false);
 
   return (
-    <InputBox>
-      <LuLock size={18} />
-      <Input
-        type={active ? 'text' : 'password'}
-        placeholder={placeholder}
-        value={value}
-        required={required}
-        onChange={ev => onChange && onChange(ev.target.value)}
-      />
-      <div onClick={() => setActive(!active)}>
-        <If check={active} true={<PiEye size={16} />} false={<PiEyeSlash size={16} />} />
-      </div>
-    </InputBox>
+    <InputField
+      type={active ? 'text' : 'password'}
+      label={label}
+      placeholder={placeholder}
+      value={value}
+      required={required}
+      onChange={value => onChange && onChange(value)}
+      iconLeft={<LuLock size={18} />}
+      iconRight={
+        <div onClick={() => setActive(!active)}>
+          <If check={active} true={<PiEye size={16} />} false={<PiEyeSlash size={16} />} />
+        </div>
+      }
+    />
   );
 };
-
 export default HiddenInput;

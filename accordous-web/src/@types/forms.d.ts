@@ -7,9 +7,6 @@ declare namespace Forms {
 
   type SignUp = {
     email: string;
-    name: string;
-    phone: string;
-    cpf: string;
     password: string;
     confirmPassword: string;
   };
@@ -17,5 +14,20 @@ declare namespace Forms {
   type VerifyCode = {
     email: string;
     code: string;
+  };
+
+  type Property = {
+    email: string;
+    name: string;
+    description: string;
+    price: string;
+    area: string;
+    city: string;
+    state: string;
+    neighborhood: string;
+    street: string;
+    number: string;
+    complement: string;
+    phone: string;
   };
 }

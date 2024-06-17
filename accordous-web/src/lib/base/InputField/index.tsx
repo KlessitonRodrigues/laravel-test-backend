@@ -1,7 +1,7 @@
 import { Input, InputBoxSmall, Label } from '../StyledComponents/Inputs';
 
 const InputField = (props: Props.InputField) => {
-  const { placeholder, value, onChange, required, label, iconLeft, iconRight } = props;
+  const { type, placeholder, value, onChange, required, label, iconLeft, iconRight } = props;
 
   return (
     <Label>
@@ -9,6 +9,7 @@ const InputField = (props: Props.InputField) => {
       <InputBoxSmall>
         {iconLeft}
         <Input
+          type={type}
           required={required}
           value={value}
           onChange={ev => onChange && onChange(ev.target.value)}

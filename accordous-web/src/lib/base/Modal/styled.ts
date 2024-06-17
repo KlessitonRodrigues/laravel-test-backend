@@ -13,7 +13,7 @@ export const ModalContainer = styled.div<{ show: boolean }>(
     align-items: center;
     width: 100vw;
     height: 100vh;
-    animation: 0.5s ${animations.fadeIn} ease-out;
+    animation: 0.3s ${animations.fadeIn} ease-out;
     background-color: #000b;
     backdrop-filter: blur(4px);
     z-index: 2;
@@ -36,12 +36,12 @@ export const ModalHeader = styled.div(
 export const ModalContent = styled.div(
   ({ theme }) => css`
     width: 100%;
-    max-width: ${cssSize(250)};
-    max-height: ${cssSize(250)};
+    max-width: ${cssSize(280)};
+    max-height: ${cssSize(280)};
     padding: ${cssSize(8)};
     background-color: #fff;
     border-radius: ${theme.radius.large};
     overflow: auto;
-    animation: 0.5s ${animations.slideUp} ease-out;
+    animation: 0.3s ${animations.slideUp} ease-out;
   `,
 );

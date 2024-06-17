@@ -5,7 +5,7 @@ import { MainButton } from 'src/lib/base/StyledComponents/Buttons';
 import { Column } from 'src/lib/base/StyledComponents/Flex';
 import { Form } from 'src/lib/base/StyledComponents/Forms';
 
-const AnnounceFiltersForm = () => {
+const PropertyFieltersForm = () => {
   return (
     <Form>
       <Column>
@@ -67,4 +67,4 @@ const AnnounceFiltersForm = () => {
   );
 };
 
-export default AnnounceFiltersForm;
+export default PropertyFieltersForm;

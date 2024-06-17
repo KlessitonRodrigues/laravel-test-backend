@@ -3,6 +3,11 @@ declare namespace Utils {
 
   type TranslationFile = Record<string, string>;
 
+  type AuthToken = {
+    id: string;
+    email: string;
+  };
+
   type TextTags =
     | 'b'
     | 'span'

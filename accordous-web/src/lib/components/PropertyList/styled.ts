@@ -16,6 +16,7 @@ export const Announces = styled.div(
     grid-template-columns: 1fr 1fr 1fr;
     gap: ${cssSize(6)};
     padding: 0 ${cssSize(6)};
+    row-gap: ${cssSize(12)};
 
     @media (max-width: ${screenSize.desktopS}px) {
       grid-template-columns: 1fr 1fr;
@@ -32,6 +33,12 @@ export const Announce = styled.div(
     width: ${cssSize(100)};
     border-radius: ${theme.radius.medium};
     box-shadow: ${theme.shadow.small};
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: ${theme.shadow.medium};
+    }
   `,
 );
 
@@ -48,6 +55,9 @@ export const AnnounceImage = styled.div<Props.CssProps>(
 
 export const AnnounceDescription = styled.div(
   ({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: ${cssSize(4)};
     height: ${cssSize(30)};
     padding: ${cssSize(4)};
     font-size: ${theme.fontSize.small};

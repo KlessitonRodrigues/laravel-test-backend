@@ -18,7 +18,7 @@ export const InputBox = styled.label<Props.CssProps>(
     align-items: center;
     gap: ${cssSize(2)};
     background-color: ${theme.colors.bg1};
-    border-radius: ${theme.radius.medium};
+    border-radius: ${theme.radius.small};
     border: ${theme.border.small};
     padding: ${cssSize(4)} ${cssSize(5)};
     cursor: text;

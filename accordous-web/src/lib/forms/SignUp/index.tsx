@@ -1,18 +1,16 @@
 import { useState } from 'react';
-import { LuLock, LuMail } from 'react-icons/lu';
+import { LuMail } from 'react-icons/lu';
 
+import HiddenInput from 'src/lib/base/HiddenInput';
+import InputField from 'src/lib/base/InputField';
 import { MainButton } from 'src/lib/base/StyledComponents/Buttons';
-import { Column, Row } from 'src/lib/base/StyledComponents/Flex';
+import { Column } from 'src/lib/base/StyledComponents/Flex';
 import { Form } from 'src/lib/base/StyledComponents/Forms';
-import { Input, InputBox, Label } from 'src/lib/base/StyledComponents/Inputs';
 import { DefaultTitle } from 'src/lib/base/StyledComponents/typography';
 import { isValidPassword } from 'src/utils/forms';
 
 const initialState: Forms.SignUp = {
   email: '',
-  name: '',
-  phone: '',
-  cpf: '',
   password: '',
   confirmPassword: '',
 };
@@ -30,33 +28,29 @@ export const SignUpForm = (props: Props.Form<Forms.SignUp>) => {
   return (
     <Form onSubmit={handleSubmit}>
       <DefaultTitle size={10}>New Account</DefaultTitle>
-
       <Column gap={8}>
-        <Label>
-          <h6>Email</h6>
-          <InputBox>
-            <LuMail size={18} />
-            <Input placeholder="Enter your email" />
-          </InputBox>
-        </Label>
-
-        <Label>
-          <h6>Password</h6>
-          <InputBox>
-            <LuLock size={18} />
-            <Input placeholder="Enter your password" />
-          </InputBox>
-        </Label>
-
-        <Label>
-          <h6>Confirm Password</h6>
-          <InputBox>
-            <LuLock size={18} />
-            <Input placeholder="Enter your password" />
-          </InputBox>
-        </Label>
+        <InputField
+          label="Email"
+          placeholder="Enter your email"
+          value={form.email}
+          onChange={email => setForm({ ...form, email })}
+          iconLeft={<LuMail size={18} />}
+        />
+        <HiddenInput
+          label="Password"
+          placeholder="Enter your password"
+          value={form.password}
+          onChange={password => setForm({ ...form, password })}
+          iconLeft={<LuMail size={18} />}
+        />
+        <HiddenInput
+          label="Confirm Password"
+          placeholder="Enter your password again"
+          value={form.confirmPassword}
+          onChange={confirmPassword => setForm({ ...form, confirmPassword })}
+          iconLeft={<LuMail size={18} />}
+        />
       </Column>
-
       <MainButton>Create</MainButton>
     </Form>
   );

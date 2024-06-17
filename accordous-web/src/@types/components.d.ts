@@ -76,6 +76,7 @@ declare namespace Props {
   };
 
   type InputField = {
+    type?: string;
     label?: string;
     value?: string;
     required?: boolean;
@@ -87,5 +88,9 @@ declare namespace Props {
 
   type AppHeader = {
     onCreateAnnounce?: () => void;
+  };
+
+  type PropertyList = {
+    list: Models.Property[];
   };
 }

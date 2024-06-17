@@ -7,7 +7,7 @@ const notification: iNotification = {
   insert: 'top',
   container: 'top-right',
   dismiss: {
-    duration: 5000,
+    duration: 15000,
     onScreen: true,
     showIcon: true,
     pauseOnHover: true,

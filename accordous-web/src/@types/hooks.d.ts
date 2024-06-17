@@ -1,6 +1,7 @@
 declare namespace Hooks {
-  type UseTheme = {
-    color: string;
-    setColor: React.Dispatch<string>;
+  type UseAccountContext = {
+    user: Models.User | undefined;
+    setUser: React.Dispatch<Models.Users>;
+    loading: boolean;
   };
 }

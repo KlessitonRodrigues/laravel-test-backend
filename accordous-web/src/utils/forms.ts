@@ -15,3 +15,9 @@ export const isValidPassword = (value: string, confirm?: string) => {
   if (!value.match(/[0-9]/)) return notify.warning('Password must have at least one number');
   return true;
 };
+
+export const isValidEmail = (value: string) => {
+  if (!value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/))
+    return notify.warning('Invalid email');
+  return true;
+};
