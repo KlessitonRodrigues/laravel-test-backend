@@ -13,7 +13,7 @@ export const setToken = (token: string) => {
 export const logout = () => {
   try {
     localStorage.setItem('authToken', '');
-    if (window.location.pathname.includes('/app/')) {
+    if (window.location.pathname.includes('/home')) {
       window.location.replace('/');
     }
   } catch {}

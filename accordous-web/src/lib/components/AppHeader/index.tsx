@@ -22,7 +22,7 @@ const AppHeader = (props: Props.AppHeader) => {
       </Row>
 
       <MainButton onClick={() => onCreateAnnounce && onCreateAnnounce()}>
-        Create new Annouce
+        Create new Announce
       </MainButton>
     </Container>
   );

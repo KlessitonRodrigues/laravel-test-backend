@@ -22,7 +22,7 @@ export const AccountProvider = (props: PropsWithChildren) => {
     };
     load().catch(() => {
       logout();
-      location.pathname = '/test';
+      location.pathname = '/';
     });
   }, []);
 

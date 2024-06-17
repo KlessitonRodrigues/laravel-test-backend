@@ -34,7 +34,7 @@ const AuthPage = () => {
       .then(res => {
         setToken(res.data);
         notify.success('Login successful');
-        window.location.pathname = '/app/home';
+        window.location.pathname = '/home';
       })
       .finally(() => setLoading(false));
   };
@@ -60,7 +60,7 @@ const AuthPage = () => {
       .then(res => {
         setToken(res.data.token);
         notify.success('Login success');
-        window.location.pathname = '/app/home';
+        window.location.pathname = '/home';
       })
       .finally(() => setLoading(false));
   };

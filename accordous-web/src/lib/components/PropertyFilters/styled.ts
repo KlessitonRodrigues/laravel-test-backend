@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { cssSize } from 'src/styles/utils';
+import { cssSize, screenSize } from 'src/styles/utils';
 
 export const Container = styled.div(
   ({ theme }) => css`
@@ -10,5 +10,9 @@ export const Container = styled.div(
     padding: ${cssSize(4)};
     border: ${theme.border.small};
     border-radius: ${theme.radius.medium};
+
+    @media (max-width: ${screenSize.laptopS}px) {
+      display: none;
+    }
   `,
 );

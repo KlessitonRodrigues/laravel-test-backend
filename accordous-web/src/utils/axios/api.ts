@@ -4,7 +4,7 @@ import { notify } from '../notify';
 import { getToken } from '../token';
 
 // const baseURL = 'http://localhost:3005';
-const baseURL = 'https://2so6wtdcja.execute-api.us-east-1.amazonaws.com/prod/';
+const baseURL = 'https://2so6wtdcja.execute-api.us-east-1.amazonaws.com/prod';
 
 export const apiClient = axios.create({
   baseURL,
