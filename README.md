@@ -2,6 +2,10 @@
 
 #### Available on: https://d2br88sd9e2try.cloudfront.net
 
+#### 🎨 Design Source
+
+- Figma: https://www.figma.com/design/v5GTsk0KYMrXsWE7iQvjpE/accordous-web
+
 #### 🔨 Frameworks
 
 - ReactJS
