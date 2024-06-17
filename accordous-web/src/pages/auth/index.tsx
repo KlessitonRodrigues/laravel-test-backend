@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import If from 'src/lib/base/If';
 import { Button } from 'src/lib/base/StyledComponents/Buttons';
@@ -25,8 +24,8 @@ const bgImages = [house1, house2, house3];
 const AuthPage = () => {
   const [formType, setFormType] = useState(0);
   const [section, setSection] = useState(0);
+  const [userEmail, setUserEmail] = useState('');
   const [isLoading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const onLogin = (form: Forms.SignIn) => {
     setLoading(true);
@@ -35,33 +34,42 @@ const AuthPage = () => {
       .then(res => {
         setToken(res.data);
         notify.success('Login successful');
-        // navigate('/app/home');
         window.location.pathname = '/app/home';
       })
       .finally(() => setLoading(false));
   };
 
   const onCreateAccount = async (form: Forms.SignUp) => {
-    apiClient.post(apiRoutes.authSignUp, form).then(res => {
-      notify.success('New account created successfully');
-      notify.info(`Code: ${res.data.code} (TESTING ONLY)`);
-      setFormType(2);
-    });
+    setLoading(true);
+    apiClient
+      .post(apiRoutes.authSignUp, form)
+      .then(res => {
+        notify.success('New account created successfully');
+        notify.info(`Code: ${res.data.code} (TEST ONLY)`);
+        setUserEmail(res.data.user.email);
+        setFormType(2);
+      })
+      .finally(() => setLoading(false));
   };
 
   const onVerifyCode = async (form: Forms.VerifyCode) => {
-    apiClient.post(apiRoutes.authVerifyCode, form).then(res => {
-      setToken(res.data.token);
-      notify.success('Login success');
-      navigate('/app/home');
-    });
+    setLoading(true);
+    form.email = userEmail;
+    apiClient
+      .post(apiRoutes.authVerifyCode, form)
+      .then(res => {
+        setToken(res.data.token);
+        notify.success('Login success');
+        window.location.pathname = '/app/home';
+      })
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
       if (section < authDescriptions.length - 1) setSection(section + 1);
       else setSection(0);
-    }, 3000);
+    }, 8000);
     return () => clearTimeout(timer);
   }, [section]);
 

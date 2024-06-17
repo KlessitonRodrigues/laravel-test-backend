@@ -35,6 +35,7 @@ export const SignUpForm = (props: Props.Form<Forms.SignUp>) => {
           value={form.email}
           onChange={email => setForm({ ...form, email })}
           iconLeft={<LuMail size={18} />}
+          large
         />
         <HiddenInput
           label="Password"
@@ -42,6 +43,7 @@ export const SignUpForm = (props: Props.Form<Forms.SignUp>) => {
           value={form.password}
           onChange={password => setForm({ ...form, password })}
           iconLeft={<LuMail size={18} />}
+          large
         />
         <HiddenInput
           label="Confirm Password"
@@ -49,6 +51,7 @@ export const SignUpForm = (props: Props.Form<Forms.SignUp>) => {
           value={form.confirmPassword}
           onChange={confirmPassword => setForm({ ...form, confirmPassword })}
           iconLeft={<LuMail size={18} />}
+          large
         />
       </Column>
       <MainButton>Create</MainButton>

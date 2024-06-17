@@ -6,7 +6,7 @@ import If from '../If';
 import InputField from '../InputField';
 
 const HiddenInput = (props: Props.InputField) => {
-  const { label, placeholder, value, required, onChange } = props;
+  const { label, placeholder, value, required, onChange, large } = props;
   const [active, setActive] = useState(false);
 
   return (
@@ -23,6 +23,7 @@ const HiddenInput = (props: Props.InputField) => {
           <If check={active} true={<PiEye size={16} />} false={<PiEyeSlash size={16} />} />
         </div>
       }
+      large={!!large}
     />
   );
 };

@@ -12,16 +12,17 @@ export const Label = styled.label<Props.CssProps>(
 );
 
 export const InputBox = styled.label<Props.CssProps>(
-  ({ theme, w }) => css`
+  ({ theme, w, large }) => css`
     width: ${w ?? '100%'};
     display: flex;
     align-items: center;
     gap: ${cssSize(2)};
+    cursor: text;
     background-color: ${theme.colors.bg1};
     border-radius: ${theme.radius.small};
     border: ${theme.border.small};
-    padding: ${cssSize(4)} ${cssSize(5)};
-    cursor: text;
+    padding: ${cssSize(3)} ${cssSize(5)};
+    ${large && `padding: ${cssSize(4)} ${cssSize(6)};`}
 
     svg {
       transform: scale(1.3);

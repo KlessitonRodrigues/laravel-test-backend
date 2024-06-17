@@ -1,69 +1,85 @@
-### Sobre a Accordous
-##### Não perca mais tempo com seus contratos.
-Somos uma empresa de tecnologia voltada a simplificação de processos burocráticos! Desde a concepção até a cobrança de contratos, seja ele de imóveis, acordo, prestação de serviços, entre outros.
+## 🌐 Accordous Page
 
+#### Available on: https://d2br88sd9e2try.cloudfront.net
 
-##### Teste Full Stack Laravel
-O objetivo deste teste é entendermos um pouco mais sobre seus conhecimentos de Frontend e Backend no Laravel.
+#### 🔨 Frameworks
 
-##### Requisitos
-- PHP 7.1+
-- Laravel (Preferência 5.8+)
-- Vue.JS
-- Docker Engine
+- ReactJS
+- Styled Components
+- ViteJS
 
-##### Orientações
-Faça um fork deste projeto.
+#### 🚀 Start Application
 
-Para facilitar o seu desenvolvimento, nós disponibilizamos um ``docker-compose.yml`` com o serviços que utilizamos habitualmente no nosso dia a dia.
+- run "yarn" and "yarn dev"
 
-#### O Desafio
-Simular o cadastro de uma propriedade e criar um contrato para o mesmo.
+#### 📦 Deploy Application
 
-##### Funcionalidade 1:
-  - Permitir o cadastro de um imóvel com algumas características. 
-  - o cadastro de um imóvel deve possuir:
-  - e-mail do proprietário, rua, número, complemento, bairro, cidade, estado;
+- Generate website assets
 
-Para que o cadastro ocorra deverá haver validações em dois níveis. Frontend e backend:
-- 1 - e-mail, rua, bairro, cidade e estado são campos obrigatórios;
-- 2 - e-mail deverá ser validado;
+  ```
+  yarn build
+  ```
 
-##### Funcionalidade 2:
-  - Contexto: Permitir visualização dos imóveis cadastrados.
-    Os dados de imóveis deverão ser carregados via request assíncrona. Esses dados deverão ser exibidos numa tabela e ao menos uma das colunas serem ordenáveis.
-    Dados que deverão ser exibidos na tabela:
-  - E-mail do proprietário;
-  - Rua, número, cidade, estado (separados por vírgula);
-  - Status (Contratado / Não contratado)
-  - Coluna para ações (remover).
+- Add AWS keys
 
-##### Funcionalidade 3:
-  - Contexto: permitir a remoção de uma propriedade via chamada assíncrona com atualização posterior da lista de propriedades.
-  - Observação: a remoção de uma propriedade deverá ser virtual.
+  ```
+  export AWS_ACCESS_KEY_ID=
+  export AWS_SECRET_ACCESS_KEY=
+  export AWS_DEFAULT_REGION=us-east-1
+  ```
 
-##### Funcionalidade 4:
-  - Contexto: Criação de um contrato que permita associação com uma propriedade. Um contrato possui os seguintes campos:
-  - Propriedade (deverá ser selecionável a propriedade. Sendo usado como informação da propriedade a rua, número, complemento, bairro);
-  - Tipo de pessoa (Pessoa física ou Pessoa Jurídica);
-  - Documento (A máscara do campo de documento deverá alterar de acordo com o tipo de pessoa. Pessoa física deverá ser máscara de CPF e pessoa jurídica deverá ser máscara de CNPJ)
-  - E-mail do contratante;
-  - Nome completo do contratante;
+- Deploy
 
-##### Regras específicas sobre a criação de contrato:
-- Uma propriedade não pode estar associada a dois contratos;
-- Todos os campos do contrato são obrigatórios;
-- Deverá ocorrer validação do documento;
-- Deverá ocorrer validação do e-mail;
+  ```
+  cd ./deploy
+  yarn cdk:deploy
+  ```
 
+# 📡 Accordous API
 
-### Extras
-- Job: deve-se utilizar alguma forma de job;
-- Teste unitário de backend;
-- Teste de integração backend;
-- SPA.
-- Usabilidade (A usabilidade das funcionalidades fica a cargo do desenvolvedor) :D
+#### Available on: https://2so6wtdcja.execute-api.us-east-1.amazonaws.com/prod/
 
+#### 🔨 Frameworks
 
-### Entrega
-Deixar um repositório público e nos enviar por e-mail - o mesmo e-mail que foi enviado o teste.
+- AWS CDK library
+- MongoDB
+- Docker
+- BcryptJS
+- JsonWebToken
+
+#### 📪 Endpoints
+
+- Import the file "insomnia.json" into insomnia app to see each endpoint
+
+#### 🔒 Environment Configuration
+
+- .env
+
+  ```
+    MONGODB=mongodb://mongo:27017/acadenutri
+    SECRET_KEY=
+    TOKEN_KEY=
+  ```
+
+#### 🚀 Start Application
+
+> Local
+
+- change ".env" file to use the local database uri
+- run "docker-compose up"
+
+#### 📦 Deploy Application
+
+- Add AWS keys
+
+  ```
+  export AWS_ACCESS_KEY_ID=
+  export AWS_SECRET_ACCESS_KEY=
+  export AWS_DEFAULT_REGION=us-east-1
+  ```
+
+- Deploy
+
+  ```
+  yarn cdk:deploy
+  ```

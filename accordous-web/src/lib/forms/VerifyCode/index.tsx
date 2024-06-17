@@ -32,10 +32,11 @@ export const VerifyCodeForm = (props: Props.Form<Forms.VerifyCode>) => {
           value={form.code}
           onChange={code => setForm({ ...form, code })}
           iconLeft={<LuLock size={18} />}
+          large
         />
       </Column>
 
-      <MainButton>Create</MainButton>
+      <MainButton>Confirm</MainButton>
     </Form>
   );
 };

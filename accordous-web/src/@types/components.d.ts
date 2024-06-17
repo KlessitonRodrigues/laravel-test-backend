@@ -24,6 +24,8 @@ declare namespace Props {
     src?: string;
     flexwrap?: boolean;
     delay?: string;
+    small?: boolean;
+    large?: boolean;
   };
 
   type Page = {
@@ -84,6 +86,7 @@ declare namespace Props {
     onChange?: (value: string) => void;
     iconLeft?: React.ReactElement;
     iconRight?: React.ReactElement;
+    large?: boolean;
   };
 
   type AppHeader = {

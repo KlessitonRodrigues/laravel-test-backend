@@ -9,12 +9,16 @@ import { RequestCodeLambda } from '../lib/lambdas/auth/requestCode/lambda';
 import { SignInLambda } from '../lib/lambdas/auth/signIn/lambda';
 import { SignUpLambda } from '../lib/lambdas/auth/signUp/lambda';
 import { VerifyCodeLambda } from '../lib/lambdas/auth/verifyCode/lambda';
+import { CreatePropertyLambda } from '../lib/lambdas/property/createProperty/lambda';
+import { DeletePropertyLambda } from '../lib/lambdas/property/deleteProperty/lambda';
+import { GetPropertyLambda } from '../lib/lambdas/property/getProperty/lambda';
+import { ListPropertiesLambda } from '../lib/lambdas/property/listProperties/lambda';
 import { GetUserLambda } from '../lib/lambdas/user/getUser/lambda';
 import { addCorsPreflight } from '../utils/api/addCors';
 
 export class NodeTemplateStack extends cdk.Stack {
   constructor(scope: cdk.App, props?: cdk.StackProps) {
-    super(scope, 'AcadenutriStack', props);
+    super(scope, 'AccordousApiStack', props);
 
     const lambdaProps: Lambdas.LambdasProps = {
       MONGODB: env.MONGODB,
@@ -29,6 +33,10 @@ export class NodeTemplateStack extends cdk.Stack {
     const requestCode = new RequestCodeLambda(this, lambdaProps);
     const verifyCode = new VerifyCodeLambda(this, lambdaProps);
     const getUser = new GetUserLambda(this, lambdaProps);
+    const getProperty = new GetPropertyLambda(this, lambdaProps);
+    const createProperty = new CreatePropertyLambda(this, lambdaProps);
+    const deleteProperty = new DeletePropertyLambda(this, lambdaProps);
+    const listProperties = new ListPropertiesLambda(this, lambdaProps);
 
     // API Gateway
     const testApi = new TestApiGateway(this);
@@ -61,6 +69,19 @@ export class NodeTemplateStack extends cdk.Stack {
     const userApi = testApi.root.addResource('user');
     userApi.addMethod('GET', new gateway.LambdaIntegration(getUser));
 
+    // ...property/
+    const propertyApi = testApi.root.addResource('property');
+    propertyApi.addMethod('GET', new gateway.LambdaIntegration(getProperty));
+    propertyApi.addMethod('POST', new gateway.LambdaIntegration(createProperty));
+
+    // ...property/:id
+    const propertyIdApi = propertyApi.addResource(':id');
+    propertyIdApi.addMethod('DELETE', new gateway.LambdaIntegration(deleteProperty));
+
+    // ...property/list
+    const propertyListApi = propertyApi.addResource('list');
+    propertyListApi.addMethod('GET', new gateway.LambdaIntegration(listProperties));
+
     // CORS Preflight
     addCorsPreflight(authSignInApi);
     addCorsPreflight(authSignUpApi);
@@ -68,5 +89,8 @@ export class NodeTemplateStack extends cdk.Stack {
     addCorsPreflight(authVerifyCodeApi);
     addCorsPreflight(authRefreshTokenApi);
     addCorsPreflight(userApi);
+    addCorsPreflight(propertyApi);
+    addCorsPreflight(propertyIdApi);
+    addCorsPreflight(propertyListApi);
   }
 }

@@ -38,6 +38,7 @@ export const SignInForm = (props: Props.Form<Forms.SignIn>) => {
           iconLeft={<LuMail size={18} />}
           value={form.email}
           onChange={email => setForm({ ...form, email })}
+          large
         />
 
         <Column right>
@@ -47,6 +48,7 @@ export const SignInForm = (props: Props.Form<Forms.SignIn>) => {
             placeholder="Enter your password"
             value={form.password}
             onChange={password => setForm({ ...form, password })}
+            large
           />
           <Row right>
             <small>Forgot password?</small>
