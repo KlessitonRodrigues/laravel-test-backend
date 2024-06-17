@@ -56,7 +56,7 @@ export const SignInForm = (props: Props.Form<Forms.SignIn>) => {
         </Column>
       </Column>
 
-      <MainButton>Enter</MainButton>
+      <MainButton w="10rem">Enter</MainButton>
     </Form>
   );
 };

@@ -9,7 +9,7 @@ export const Form = styled.form<Props.CssProps>(
     align-items: center;
     margin: auto;
     width: 100%;
-    max-width: ${cssSize(110)};
+    max-width: ${cssSize(120)};
     padding: ${cssSize(6)} 0;
     gap: ${cssSize(8)};
     animation: ${animations.fadeIn} 1s;

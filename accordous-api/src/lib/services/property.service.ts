@@ -1,5 +1,6 @@
 import { Models } from '../../@types/models';
-import { toObjectId } from '../../utils/mongo/convertObj';
+import { toJSObject, toObjectId } from '../../utils/mongo/convertObj';
+import { PropertyContractModel } from '../models/contract.model';
 import { PropertyModel } from '../models/property.model';
 
 export class PropertyService {
@@ -32,5 +33,16 @@ export class PropertyService {
       { archived: false },
     );
     return deletedProperty;
+  }
+
+  async contractProperty(propertyId: string, contract: Models.PropertyContract) {
+    const newContract = new PropertyContractModel(contract);
+    await newContract.save();
+    const updatedProperty = await PropertyModel.findByIdAndUpdate(
+      { _id: toObjectId(propertyId) },
+      { contractId: newContract.id },
+    );
+
+    return { contract: toJSObject(newContract), property: toJSObject(updatedProperty) };
   }
 }

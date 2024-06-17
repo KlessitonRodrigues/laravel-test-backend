@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
-import { LuMapPin } from 'react-icons/lu';
+import { LuMap, LuMapPin, LuPhone, LuTrash, LuTrash2 } from 'react-icons/lu';
 
+import { DangerButton, MainButton, OutlineButton } from 'src/lib/base/StyledComponents/Buttons';
 import { Row } from 'src/lib/base/StyledComponents/Flex';
 import { DefaultText } from 'src/lib/base/StyledComponents/typography';
 
@@ -16,28 +17,51 @@ const fakeImages = [
 ];
 
 const PropertyList = (props: Props.PropertyList) => {
-  const { list } = props;
+  const { list, onContract, onDelete } = props;
 
   const properties = useMemo(() => {
     return list.map((property, i) => {
-      const { id, area, city, state, street } = property;
+      const { id, area, city, state, street, price, phone, contractId } = property;
       return (
         <Announce key={id}>
           <AnnounceImage src={fakeImages[i % fakeImages.length]} />
           <AnnounceDescription>
+            <Row left>
+              <LuMapPin size={16} />
+              <DefaultText size={4.5}>{`${state}, ${city}, ${street}`}</DefaultText>
+            </Row>
+            <Row left>
+              <LuPhone size={16} />
+              {phone}
+            </Row>
             <Row>
               <Row left>
-                <LuMapPin />
-                {state}
+                <LuMap size={16} />
+                <DefaultText size={6}>{area} m²</DefaultText>
               </Row>
-              <Row right>{area} m²</Row>
+              <Row right>
+                <DefaultText size={7.5}>
+                  <b>{price} $RS</b>
+                </DefaultText>
+              </Row>
             </Row>
-            <DefaultText size={5}>{`${city}, ${street}`}</DefaultText>
+            <Row>
+              <MainButton
+                w="100%"
+                disabled={!!contractId}
+                onClick={() => onContract && onContract(property)}
+              >
+                {!!contractId ? 'Contratado' : 'Contratar'}
+              </MainButton>
+              <DangerButton w="fit-content" onClick={() => onDelete && onDelete(property)}>
+                <LuTrash2 size={18} />
+              </DangerButton>
+            </Row>
           </AnnounceDescription>
         </Announce>
       );
     });
-  }, [list.length]);
+  }, [list.length, onContract]);
 
   return (
     <Container>

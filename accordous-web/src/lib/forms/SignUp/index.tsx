@@ -54,7 +54,7 @@ export const SignUpForm = (props: Props.Form<Forms.SignUp>) => {
           large
         />
       </Column>
-      <MainButton>Create</MainButton>
+      <MainButton w="10rem">Create</MainButton>
     </Form>
   );
 };

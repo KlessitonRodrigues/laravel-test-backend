@@ -1,11 +1,10 @@
-import { currenMainColor } from 'src/utils/theme';
-
 import { antColors as ac, materialColors as mcolors } from './colors';
 import { cssSize } from './utils';
 
 export const defaultTheme: Styles.Theme = {
   colors: {
-    ...currenMainColor,
+    main: mcolors.blue['600'],
+    mainBg: mcolors.blue['900'],
     mainText: mcolors.grey['50'],
     bg1: ac.gray['100'],
     bg2: ac.gray['200'],

@@ -36,7 +36,7 @@ export const VerifyCodeForm = (props: Props.Form<Forms.VerifyCode>) => {
         />
       </Column>
 
-      <MainButton>Confirm</MainButton>
+      <MainButton w="10rem">Confirm</MainButton>
     </Form>
   );
 };

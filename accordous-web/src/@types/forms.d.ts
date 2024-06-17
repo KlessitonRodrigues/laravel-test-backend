@@ -30,4 +30,12 @@ declare namespace Forms {
     complement: string;
     phone: string;
   };
+
+  type PropertyContract = {
+    email: string;
+    name: string;
+    phone: string;
+    cpf: string;
+    cnpj: string;
+  };
 }

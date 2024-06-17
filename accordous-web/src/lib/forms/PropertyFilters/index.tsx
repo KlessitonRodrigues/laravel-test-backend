@@ -33,14 +33,14 @@ const PropertyFieltersForm = () => {
         <InputField
           required
           label="Maximum size"
-          placeholder="Brasil"
+          placeholder="100000"
           iconLeft={<LuRuler size={16} />}
           iconRight={<strong>m²</strong>}
         />
         <InputField
           required
           label="Minimum size"
-          placeholder="São Paulo"
+          placeholder="0"
           iconLeft={<LuRuler size={16} />}
           iconRight={<strong>m²</strong>}
         />
@@ -50,19 +50,19 @@ const PropertyFieltersForm = () => {
         <InputField
           required
           label="Maximum value"
-          placeholder="0"
+          placeholder="100000"
           iconLeft={<LuBanknote size={16} />}
           iconRight={<strong>$</strong>}
         />
         <InputField
           required
           label="Minimum value"
-          placeholder="100000"
+          placeholder="0"
           iconLeft={<LuBanknote size={16} />}
           iconRight={<strong>$</strong>}
         />
       </Column>
-      <MainButton>Search</MainButton>
+      <MainButton w="10rem">Search</MainButton>
     </Form>
   );
 };

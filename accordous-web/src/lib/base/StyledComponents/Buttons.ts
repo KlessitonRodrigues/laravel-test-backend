@@ -16,8 +16,9 @@ export const Button = styled.button<Props.CssProps>(
     font-size: ${theme.fontSize.label};
     font-weight: bold;
     transition: 0.2s;
-    min-width: ${w ?? cssSize(50)};
-    min-height: ${h ?? cssSize(12)};
+    min-height: ${cssSize(12)};
+    ${w && `width: ${w};`}
+    ${h && `height: ${h};`}
 
     &:hover {
       opacity: 0.8;
@@ -47,7 +48,7 @@ export const DangerButton = styled(Button)(
 
 export const OutlineButton = styled(Button)(
   ({ theme, w }) => css`
-    width: ${w ?? 'fit-content'};
+    width: ${w ?? '100%'};
     display: flex;
     justify-content: center;
     align-items: center;

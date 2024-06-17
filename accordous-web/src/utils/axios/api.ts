@@ -22,6 +22,7 @@ export const apiRoutes = {
   user: '/user/',
   property: '/property/',
   properties: '/property/list',
+  propertyContract: '/property/contract/',
 };
 
 apiClient.interceptors.response.use(

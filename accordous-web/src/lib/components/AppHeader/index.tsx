@@ -17,7 +17,7 @@ const AppHeader = (props: Props.AppHeader) => {
 
         <InputBoxSmall>
           <LuSearch size={14} />
-          <Input />
+          <Input placeholder="Search..." />
         </InputBoxSmall>
       </Row>
 

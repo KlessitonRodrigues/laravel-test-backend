@@ -132,7 +132,7 @@ const AnnounceForm = (props: Props.Form<Forms.Property>) => {
         />
       </Column>
 
-      <MainButton>Save</MainButton>
+      <MainButton w="10rem">Save</MainButton>
     </FormLarge>
   );
 };

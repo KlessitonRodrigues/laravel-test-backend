@@ -7,6 +7,12 @@ export const propertySchema = new Schema<Models.Property>({
     type: String,
     required: true,
   },
+  contractId: {
+    type: String,
+  },
+  number: {
+    type: String,
+  },
   description: {
     type: String,
     required: true,

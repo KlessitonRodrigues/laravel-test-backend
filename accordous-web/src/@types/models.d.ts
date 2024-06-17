@@ -13,6 +13,7 @@ namespace Models {
   type Property = {
     id: string;
     userId: string;
+    contractId: string;
     description: string;
     price: number;
     area: number;

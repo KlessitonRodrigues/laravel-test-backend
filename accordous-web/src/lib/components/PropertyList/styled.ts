@@ -45,7 +45,7 @@ export const Announce = styled.div(
 export const AnnounceImage = styled.div<Props.CssProps>(
   ({ theme, src }) => css`
     width: 100%;
-    height: ${cssSize(90)};
+    height: ${cssSize(80)};
     border-radius: ${theme.radius.small} ${theme.radius.small} 0 0;
     background-image: url(${src});
     background-position: center;
@@ -57,8 +57,9 @@ export const AnnounceDescription = styled.div(
   ({ theme }) => css`
     display: flex;
     flex-direction: column;
-    gap: ${cssSize(4)};
-    height: ${cssSize(30)};
+    justify-content: space-between;
+    gap: ${cssSize(2)};
+    height: ${cssSize(55)};
     padding: ${cssSize(4)};
     font-size: ${theme.fontSize.small};
   `,

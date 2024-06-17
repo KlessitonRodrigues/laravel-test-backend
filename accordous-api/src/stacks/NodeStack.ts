@@ -9,6 +9,7 @@ import { RequestCodeLambda } from '../lib/lambdas/auth/requestCode/lambda';
 import { SignInLambda } from '../lib/lambdas/auth/signIn/lambda';
 import { SignUpLambda } from '../lib/lambdas/auth/signUp/lambda';
 import { VerifyCodeLambda } from '../lib/lambdas/auth/verifyCode/lambda';
+import { PropertyContractLambda } from '../lib/lambdas/property/contractProperty/lambda';
 import { CreatePropertyLambda } from '../lib/lambdas/property/createProperty/lambda';
 import { DeletePropertyLambda } from '../lib/lambdas/property/deleteProperty/lambda';
 import { GetPropertyLambda } from '../lib/lambdas/property/getProperty/lambda';
@@ -37,6 +38,7 @@ export class NodeTemplateStack extends cdk.Stack {
     const createProperty = new CreatePropertyLambda(this, lambdaProps);
     const deleteProperty = new DeletePropertyLambda(this, lambdaProps);
     const listProperties = new ListPropertiesLambda(this, lambdaProps);
+    const propertyContract = new PropertyContractLambda(this, lambdaProps);
 
     // API Gateway
     const testApi = new TestApiGateway(this);
@@ -75,12 +77,16 @@ export class NodeTemplateStack extends cdk.Stack {
     propertyApi.addMethod('POST', new gateway.LambdaIntegration(createProperty));
 
     // ...property/:id
-    const propertyIdApi = propertyApi.addResource(':id');
+    const propertyIdApi = propertyApi.addResource('{id}');
     propertyIdApi.addMethod('DELETE', new gateway.LambdaIntegration(deleteProperty));
 
     // ...property/list
     const propertyListApi = propertyApi.addResource('list');
     propertyListApi.addMethod('GET', new gateway.LambdaIntegration(listProperties));
+
+    // ...property/contract
+    const propertyContractApi = propertyApi.addResource('contract');
+    propertyContractApi.addMethod('POST', new gateway.LambdaIntegration(propertyContract));
 
     // CORS Preflight
     addCorsPreflight(authSignInApi);
@@ -92,5 +98,6 @@ export class NodeTemplateStack extends cdk.Stack {
     addCorsPreflight(propertyApi);
     addCorsPreflight(propertyIdApi);
     addCorsPreflight(propertyListApi);
+    addCorsPreflight(propertyContractApi);
   }
 }

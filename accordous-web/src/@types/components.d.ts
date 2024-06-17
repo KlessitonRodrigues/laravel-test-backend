@@ -95,5 +95,7 @@ declare namespace Props {
 
   type PropertyList = {
     list: Models.Property[];
+    onContract?: (property: Models.Property) => void;
+    onDelete?: (property: Models.Property) => void;
   };
 }
